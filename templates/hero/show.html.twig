@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ hero.name }}{% endblock %}
+
+{% block main %}
+    <h1>Hero</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hero.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ hero.name }}</td>
+            </tr>
+            <tr>
+                <th>Attack</th>
+                <td>{{ hero.attack }}</td>
+            </tr>
+            <tr>
+                <th>AbilityAttack</th>
+                <td>{{ hero.abilityAttack }}</td>
+            </tr>
+            <tr>
+                <th>Defence</th>
+                <td>{{ hero.defence }}</td>
+            </tr>
+            <tr>
+                <th>AbilityDefence</th>
+                <td>{{ hero.abilityDefence }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary btn-lg" role="button" aria-disabled="true" href="{{ path('hero_index') }}">View all heroes</a>
+
+    <a class="btn btn-primary btn-lg" role="button" aria-disabled="true" href="{{ path('hero_edit', {'id': hero.id}) }}">Edit properties {{ hero.name }} </a>
+    <a class="btn btn-primary btn-lg" role="button" aria-disabled="true" href="{{ path('hero_delete', {'id': hero.id}) }}">Delete {{ hero.name }} </a>
+{% endblock %}

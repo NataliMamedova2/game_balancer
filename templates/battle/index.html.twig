@@ -1,0 +1,248 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+    <script src="{{ asset('assets/js/DynamicChangingCharacteristics.js') }}"></script>
+{% endblock %}
+{% block body %}
+       <div class="row">
+        <div class="col col-lg-6">
+            <div class="page-header">
+                <h2>Fill in hero's data </h2>
+            </div>
+        {{ form_start(form, {'action': path('battle_index'), 'method': 'POST'}) }}
+
+        <div class="form-row">
+            <div class="col col-lg-6">
+                <fieldset>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-6 col-form-label">
+                            Attacker Hero
+                        </label>
+                        <div class="col-sm-10">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.firstHero.name) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.firstHero.name) }}
+                            {{ form_widget(form.firstHero.name) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.firstHero.attack) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.firstHero.attack) }}
+                            {{ form_widget(form.firstHero.attack) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.firstHero.abilityAttack) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.firstHero.abilityAttack) }}
+                            {{ form_widget(form.firstHero.abilityAttack) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.firstHero.defence) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.firstHero.defence) }}
+                            {{ form_widget(form.firstHero.defence) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.firstHero.abilityDefence) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.firstHero.abilityDefence) }}
+                            {{ form_widget(form.firstHero.abilityDefence) }}
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            <label for="enableDependency">
+                               Enable dependency
+                            </label>
+                        </div>
+                        <div class="col col-lg-6">
+                            <input type="checkbox" class="form-control" id="enableDependency" value="">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            <label for="maxSumOfAbility">
+                                The maximum sum of all ability choices
+                            </label>
+                        </div>
+                        <div class="col col-lg-6">
+                            <input type="number" class="form-control" id="maxSumOfAbility" min="1" max="20" value="1">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            {{ form_label(form.amountDraw) }}
+                        </div>
+                        <div class="col col-lg-6">
+                            {{ form_errors(form.amountDraw) }}
+                            {{ form_widget(form.amountDraw) }}
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row">
+                        <div class="col col-lg-6">
+                            {{ form_label(form.amount) }}
+                        </div>
+                        <div class="col col-lg-6">
+                            {{ form_errors(form.amount) }}
+                            {{ form_widget(form.amount) }}
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col col-lg-6">
+                <fieldset>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-6 col-form-label">
+                            Defender Hero
+                        </label>
+                        <div class="col-sm-10">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.secondHero.name) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.secondHero.name) }}
+                            {{ form_widget(form.secondHero.name) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.secondHero.attack) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.secondHero.attack) }}
+                            {{ form_widget(form.secondHero.attack) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.secondHero.abilityAttack) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.secondHero.abilityAttack) }}
+                            {{ form_widget(form.secondHero.abilityAttack) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.secondHero.defence) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.secondHero.defence) }}
+                            {{ form_widget(form.secondHero.defence) }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">
+                            {{ form_label(form.secondHero.abilityDefence) }}
+                        </label>
+                        <div class="col-sm-7">
+                            {{ form_errors(form.secondHero.abilityDefence) }}
+                            {{ form_widget(form.secondHero.abilityDefence) }}
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="clear"></div>
+                {{ form_widget(form.calculateResult, { 'label': 'Run battle' }) }}
+                {{ form_widget(form.saveResultToFile, { 'label': 'Save to file' }) }}
+            </div>
+        </div>
+      </div>
+
+    {{ form_end(form) }}
+
+    {% if gameStatistic %}
+        {% set attackerAmount = gameStatistic['Attack'] %}
+        {% set defenderAmount = gameStatistic['Defence'] %}
+    <div class="col col-lg-6">
+        <div class="page-header">
+            <h2> Game statistics </h2>
+        </div>
+            <div class="row">
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Coins type</th>
+                        <th>Winning result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for key,item in gameStatistic %}
+                        <tr>
+                            <td>{{ key}}</td>
+                            <td>{{ item }} ({{ ((item * 100)/ amount)|number_format(2, '.', ',') }}%)</td>
+                        </tr>
+                    {% endfor %}
+                    {% if amount %}
+                        <tr>
+                            <td>Total Games</td>
+                            <td colspan="2">{{ amount }}</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Hero name</th>
+                            <th>Winning result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ attacker.name }}</td>
+                            <td>
+                                {{ attackerAmount + gameStatistic['Ability to attack'] }}&nbsp;
+                                {{ (((attackerAmount + gameStatistic['Ability to attack']) *100) / amount)|number_format(2, '.', ',') }}%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{{ defender.name }}</td>
+                            <td>
+                                {{ defenderAmount + gameStatistic['Ability to defence'] }}&nbsp;
+                                {{(((defenderAmount + gameStatistic['Ability to defence']) *100) / amount)|number_format(2, '.', ',') }}%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Draw</td>
+                            <td>
+                                {{ gameStatistic['Draw'] }}&nbsp;
+                                {{((gameStatistic['Draw'] *100) / amount)|number_format(2, '.', ',') }}%
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+    {% endif %}
+    </div>
+{% endblock %}

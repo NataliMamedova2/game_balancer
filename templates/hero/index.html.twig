@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of heroes{% endblock %}
+
+{% block main %}
+    <h1>List of heroes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Attack</th>
+                <th>AbilityAttack</th>
+                <th>Defence</th>
+                <th>AbilityDefence</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hero in heroes %}
+            <tr>
+                <td>{{ hero.id }}</td>
+                <td>{{ hero.name }}</td>
+                <td>{{ hero.attack }}</td>
+                <td>{{ hero.abilityAttack }}</td>
+                <td>{{ hero.defence }}</td>
+                <td>{{ hero.abilityDefence }}</td>
+                <td>
+                    <a href="{{ path('hero_show', {'id': hero.id}) }}">show</a>
+                    <a href="{{ path('hero_edit', {'id': hero.id}) }}">edit</a>
+                    <a href="{{ path('hero_delete', {'id': hero.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary btn-lg" role="button" aria-disabled="true" href="{{ path('hero_add') }}">Create new hero</a>
+{% endblock %}

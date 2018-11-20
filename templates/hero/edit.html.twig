@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Hero{% endblock %}
+
+{% block main %}
+    <h1>Edit {{ hero.name }}</h1>
+    {{ form_start(form) }}
+    <div class="col-xs-6 col-sm-3">
+        <div class="form-group">
+            {{ form_row(form.name) }}
+        </div>
+        <div class="form-group">
+            <div class="row">
+                {{ form_label(form.attack) }}
+                {{ form_errors(form.attack) }}
+                {{ form_help(form.attack) }}
+                {{ form_widget(form.attack,{'value':hero.attack})}}
+                {{ form_row(form.attack) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                {{ form_label(form.abilityAttack) }}
+                {{ form_errors(form.abilityAttack) }}
+                {{ form_help(form.abilityAttack) }}
+                {{ form_widget(form.abilityAttack,{'value':hero.abilityAttack})}}
+                {{ form_row(form.abilityAttack) }}
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-3">
+        <div class="form-group">
+            <div class="row">
+                {{ form_label(form.defence) }}
+                {{ form_errors(form.defence) }}
+                {{ form_help(form.defence) }}
+                {{ form_widget(form.defence,{'value':hero.defence})}}
+                {{ form_row(form.defence) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                {{ form_label(form.abilityDefence) }}
+                {{ form_errors(form.abilityDefence) }}
+                {{ form_help(form.abilityDefence) }}
+                {{ form_widget(form.abilityDefence,{'value':hero.abilityDefence})}}
+                {{ form_row(form.abilityDefence) }}
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="form-control-submit">
+        <button class="btn btn-primary button">Update</button>
+    </div>
+    {{ form_end(form) }}
+
+    <a class="btn btn-primary btn-lg" role="button" aria-disabled="true" href="{{ path('hero_index') }}">View all heroes</a>
+
+{% endblock %}
